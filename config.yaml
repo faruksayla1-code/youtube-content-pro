@@ -1,0 +1,60 @@
+# YouTube Content Pro - Configuration File
+
+ollama:
+  model: "qwen3-turkish:latest"
+  base_url: "http://localhost:11434"
+  timeout: 120
+  temperature: 0.7
+
+audio:
+  engine: "edge-tts"
+  voice: "tr-TR-AhmetNeural"  # Profesyonel erkek ses
+  rate: 1.0
+  volume: 1.0
+
+video:
+  fps: 24
+  codec: "libx264"
+  audio_codec: "aac"
+  preset: "medium"  # ultrafast, superfast, veryfast, faster, fast, medium, slow, slower, veryslow
+  resolution: "1920x1080"
+  bitrate: "5000k"
+
+image_processing:
+  max_images: 35
+  min_file_size: 15360  # bytes
+  max_image_duration: 10  # seconds per image
+  resize_quality: 95
+  concurrent_downloads: 5
+
+search:
+  engine: "duckduckgo"
+  timeout: 5
+  retries: 3
+
+script_generation:
+  duration_minutes: 5
+  sections: 4
+  max_tokens: 2000
+  style: "documentary"  # documentary, educational, dramatic, romantic
+
+output:
+  video_dir: "output_videos"
+  temp_dir: "temp"
+  format: "mp4"
+  quality: "high"  # low, medium, high
+
+metadata:
+  language: "tr"
+  default_keywords: []
+  hashtags_count: 15
+  description_length: 500
+
+database:
+  type: "sqlite"
+  path: "video_generator.db"
+
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "logs/app.log"
